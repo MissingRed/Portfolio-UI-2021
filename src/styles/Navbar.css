@@ -1,0 +1,22 @@
+ .main-navbar {
+   /* background: #101113; */
+   padding: 20px;
+   padding-right: 50px;
+ }
+
+ .main-navbar ul {
+   margin: 0;
+   padding: 0;
+   width: 49%;
+   float: right;
+   height: 100%;
+   list-style: none;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+
+ .main-navbar li {
+   display: flex;
+   align-items: center;
+ }
