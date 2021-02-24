@@ -9,9 +9,9 @@
 }
 
 .main-sidebar {
-
     border-right: 2px solid #707070;
 }
+
 .main-sidebar h1 {
     margin: 0;
 }
@@ -23,4 +23,16 @@
 .networks p {
     transform: rotate(-90deg);
     margin: 0;
+}
+
+.networks a {
+    transform: rotate(-90deg);
+    margin: 0;
+    color: white;
+    text-decoration: none;
+}
+
+.networks a:hover, .main-logo:hover {
+    color: tomato;
+    cursor: pointer;
 }

@@ -10,8 +10,12 @@ const Home = () => {
     backgroundImage: `url(${background})`,
   };
   const [repositories, setRepositories] = useState([]);
+  const [event, setEvent] = useState([]);
+
+  const [porcent1, setporcent1] = useState("");
   const [notFound, setNotFound] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(true);
 
   const convertirFecha = (fechaString) => {
     var fechaSp = fechaString.split("-");
@@ -21,23 +25,49 @@ const Home = () => {
 
     return new Date(anio, mes, dia);
   };
+
   const getCommit = (name) => {
     fetch(`https://api.github.com/repos/MissingRed/${name}/commits`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setporcent1(data[0].commit.message);
       });
   };
+
+  const porcent = {
+    width: `${porcent1}`,
+  };
+
+  const eventsGihub = () => {
+    fetch("https://api.github.com/users/MissingRed/received_events")
+      .then((res) => res.json())
+      .then((data) => {
+        const arr = [];
+        data.map((info) => {
+          if (info.type === "WatchEvent") {
+            arr.push(info);
+          }
+          return true;
+        });
+        setEvent(arr[0]);
+        setLoading1(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setNotFound(true);
+      });
+  };
+
   useEffect(() => {
     fetch("https://api.github.com/users/MissingRed/repos")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data[0]);
         const array = [];
         data.map((rep) => {
           const name = rep.name;
           const fechas = rep.updated_at.slice(0, -10);
           array.push({ fechas, name });
+          return true;
         });
         array.sort(function (a, b) {
           return convertirFecha(a.fechas) - convertirFecha(b.fechas);
@@ -50,6 +80,8 @@ const Home = () => {
         console.log(err);
         setNotFound(true);
       });
+
+    eventsGihub();
   }, []);
 
   return (
@@ -63,9 +95,9 @@ const Home = () => {
           <div className="main-home__container_info">
             <div className="informaion">
               <div className="actual_proyect">
-                <p>/ Proyecto Actual</p>
+                <p>/ Proyecto Actual - {porcent1}</p>
                 <div className="line_porcent">
-                  <div className="actual_porcent"></div>
+                  <div className="actual_porcent" style={porcent}></div>
                 </div>
                 <p className="actual_name">
                   {notFound
@@ -102,16 +134,26 @@ const Home = () => {
             </div>
             <div className="event">
               <div className="liked">
-                <p className="title">ME GUSTAS DE GITHUB </p>
-                <div className="public">
-                  <img src="Img/user.jpg" alt="User" />
-                  <p className="name">Jhon Smith</p>
-                </div>
-                <div className="post">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Molestiae voluptas praesentium incidunt non ut earum,
-                  recusandae nisi.
-                </div>
+                <p className="title">EVENTOS</p>
+                {notFound ? (
+                  "404"
+                ) : loading1 ? (
+                  "Cargando..."
+                ) : (
+                  <div>
+                    <div className="public">
+                      <img src={event.actor.avatar_url} alt="User" />
+                      <div className="infoRep">
+                        <p className="name">{event.actor.display_login}</p>
+                        <p className="dateRepo">{event.created_at}</p>
+                      </div>
+                    </div>
+                    <div className="post">
+                      <p className="titleRepo">Repositorio:</p>{" "}
+                      {event.repo.name}
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="proyectView">
                 <div className="imgProyect">
