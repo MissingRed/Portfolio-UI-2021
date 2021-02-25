@@ -93,7 +93,80 @@ const Home = () => {
         <div className="main-home__content">
           <Navbar />
           <div className="main-home__container_info">
-            <div className="informaion">
+            <div className="actual_proyect">
+              <p>/ Proyecto Actual - {porcent1}</p>
+              <div className="line_porcent">
+                <div className="actual_porcent" style={porcent}></div>
+              </div>
+              <p className="actual_name">
+                {notFound
+                  ? "404"
+                  : loading
+                  ? "Cargando..."
+                  : repositories[0].name}
+              </p>
+              <p className="last_name">
+                {notFound
+                  ? "404"
+                  : loading
+                  ? "Cargando..."
+                  : repositories[1].name}
+              </p>
+              <p className="last_name">
+                {notFound
+                  ? "404"
+                  : loading
+                  ? "Cargando..."
+                  : repositories[2].name}
+              </p>
+            </div>
+            <div className="presentation">
+              <h1>Hola soy Daniel!</h1>
+              <h1>Desarrollador Web</h1>
+              <div className="textinformation">
+                <p>
+                  Presentando mi colección de trabajo, una serie de proyectos
+                  personales que me han llevado hasta este punto.
+                </p>
+              </div>
+            </div>
+            <div className="liked">
+              {notFound ? (
+                "404"
+              ) : loading1 ? (
+                "Cargando..."
+              ) : (
+                <div className="public__content">
+                  <p className="title">EVENTOS</p>
+                  <div className="public">
+                    <img src={event.actor.avatar_url} alt="User" />
+                    <div className="infoRep">
+                      <p className="name">{event.actor.display_login}</p>
+                      <p className="dateRepo">{event.created_at}</p>
+                    </div>
+                  </div>
+                  <div className="post">
+                    <p className="titleRepo">Repositorio:</p> {event.repo.name}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="proyectView">
+              <div className="imgProyect">
+                <img src="Img/Mockup.png" alt="Mockup" />
+              </div>
+              <div className="informationProyect">
+                <div>
+                  <p className="title">CODESHOP</p>
+                  <p className="description">
+                    CodeShop es una tienda Online de venta de videojuegos en
+                    formato digital
+                  </p>
+                </div>
+                <p className="read_More">Leer Mas</p>
+              </div>
+            </div>
+            {/* <div className="informaion">
               <div className="actual_proyect">
                 <p>/ Proyecto Actual - {porcent1}</p>
                 <div className="line_porcent">
@@ -170,7 +243,7 @@ const Home = () => {
                   <p className="read_More">Leer Mas</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
