@@ -38,18 +38,20 @@ const Home = () => {
     width: `${porcent1}`,
   };
 
-  const eventsGihub = () => {
+  const eventsGithub = () => {
     fetch("https://api.github.com/users/MissingRed/received_events")
       .then((res) => res.json())
       .then((data) => {
-        const arr = [];
+        const arrWatch = [];
         data.map((info) => {
-          if (info.type === "WatchEvent") {
-            arr.push(info);
-          }
+          // if (info.type === "WatchEvent") {
+          //   arrWatch.push(info);
+          // }
+          // return true;
+          arrWatch.push(info);
           return true;
         });
-        setEvent(arr[0]);
+        setEvent(arrWatch[0]);
         setLoading1(false);
       })
       .catch((err) => {
@@ -81,7 +83,7 @@ const Home = () => {
         setNotFound(true);
       });
 
-    eventsGihub();
+    eventsGithub();
   }, []);
 
   return (
@@ -141,7 +143,20 @@ const Home = () => {
                   <div className="public">
                     <img src={event.actor.avatar_url} alt="User" />
                     <div className="infoRep">
-                      <p className="name">{event.actor.display_login}</p>
+                      <p className="name">
+                        {event.actor.display_login}{" "}
+                        {event.type === "CommitCommentEvent"
+                          ? "Commit"
+                          : event.type === "WatchEvent"
+                          ? "Le gustó"
+                          : event.type === "CreateEvent"
+                          ? "Creo"
+                          : event.type === "ForkEvent"
+                          ? "Fork"
+                          : event.type === "PublicEvent"
+                          ? "hizo público"
+                          : ""}
+                      </p>
                       <p className="dateRepo">{event.created_at}</p>
                     </div>
                   </div>
@@ -166,84 +181,6 @@ const Home = () => {
                 <p className="read_More">Leer Mas</p>
               </div>
             </div>
-            {/* <div className="informaion">
-              <div className="actual_proyect">
-                <p>/ Proyecto Actual - {porcent1}</p>
-                <div className="line_porcent">
-                  <div className="actual_porcent" style={porcent}></div>
-                </div>
-                <p className="actual_name">
-                  {notFound
-                    ? "404"
-                    : loading
-                    ? "Cargando..."
-                    : repositories[0].name}
-                </p>
-                <p className="last_name">
-                  {notFound
-                    ? "404"
-                    : loading
-                    ? "Cargando..."
-                    : repositories[1].name}
-                </p>
-                <p className="last_name">
-                  {notFound
-                    ? "404"
-                    : loading
-                    ? "Cargando..."
-                    : repositories[2].name}
-                </p>
-              </div>
-              <div className="presentation">
-                <h1>Hola soy Daniel!</h1>
-                <h1>Desarrollador Web</h1>
-                <div className="textinformation">
-                  <p>
-                    Presentando mi colección de trabajo, una serie de proyectos
-                    personales que me han llevado hasta este punto.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="event">
-              <div className="liked">
-                <p className="title">EVENTOS</p>
-                {notFound ? (
-                  "404"
-                ) : loading1 ? (
-                  "Cargando..."
-                ) : (
-                  <div>
-                    <div className="public">
-                      <img src={event.actor.avatar_url} alt="User" />
-                      <div className="infoRep">
-                        <p className="name">{event.actor.display_login}</p>
-                        <p className="dateRepo">{event.created_at}</p>
-                      </div>
-                    </div>
-                    <div className="post">
-                      <p className="titleRepo">Repositorio:</p>{" "}
-                      {event.repo.name}
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="proyectView">
-                <div className="imgProyect">
-                  <img src="Img/Mockup.png" alt="Mockup" />
-                </div>
-                <div className="informationProyect">
-                  <div>
-                    <p className="title">CODESHOP</p>
-                    <p className="description">
-                      CodeShop es una tienda Online de venta de videojuegos en
-                      formato digital
-                    </p>
-                  </div>
-                  <p className="read_More">Leer Mas</p>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
