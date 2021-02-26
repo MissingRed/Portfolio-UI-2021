@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import "../styles/Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -16,11 +17,42 @@ const Navbar = () => {
     <>
       <div className="main-navbar">
         <ul className="main-navbar__list">
-          <li>Inicio</li>
-          <li>Acerca de mi</li>
-          <li>Hoja de Vida</li>
-          <li>Proyectos</li>
-          <li>Contacto</li>
+          <NavLink
+            activeClassName="selectedNav"
+            exact={true}
+            className="main-navbar__list_item"
+            to="/"
+          >
+            Inicio
+          </NavLink>
+          <NavLink
+            activeClassName="selectedNav"
+            className="main-navbar__list_item"
+            to="/About-me"
+          >
+            Acerca de mi
+          </NavLink>
+          <NavLink
+            activeClassName="selectedNav"
+            className="main-navbar__list_item"
+            to="/Cv"
+          >
+            Hoja de Vida
+          </NavLink>
+          <NavLink
+            activeClassName="selectedNav"
+            className="main-navbar__list_item"
+            to="/Projects"
+          >
+            Proyectos
+          </NavLink>
+          <NavLink
+            activeClassName="selectedNav"
+            className="main-navbar__list_item"
+            to="/Contact-me"
+          >
+            Contacto
+          </NavLink>
           <li>
             <img src="Img/search.svg" alt="Search" />
           </li>
@@ -71,7 +103,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <p>In</p>
+                    <p>Ins</p>
                   </a>
                 </div>
               </div>

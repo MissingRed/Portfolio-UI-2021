@@ -1,0 +1,76 @@
+.main-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-about img {
+    width: 300px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+.main-about__container {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+}
+
+.main-about__container p {
+    /* font-size: 15px; */
+    /* width: 100%; */
+    max-width: 550px;
+}
+
+.gitHubicon {
+    width: 40px;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.gitHubicon:hover {
+   opacity: 0.7;
+}
+
+.facebookicon {
+    width: 40px;
+    padding: 8px;
+    background: #4267B2;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.facebookicon img {
+    display: block;
+    margin-right: 0;
+}
+
+.flexbox {
+    display: flex;
+}
+
+.gitHubicon img {
+    display: block;
+    margin-right: 0;
+}
+
+@media (max-width: 1050px) {
+    .main-about img {
+        width: 200px;
+        margin-right: 0px;
+    }
+    .main-about__container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-about__container p {
+        font-size: 14px;
+    }
+}

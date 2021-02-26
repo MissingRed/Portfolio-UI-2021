@@ -26,7 +26,7 @@ const Sidebar = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p>In</p>
+            <p>Ins</p>
           </a>
         </div>
       </div>

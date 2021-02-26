@@ -44,10 +44,6 @@ const Home = () => {
       .then((data) => {
         const arrWatch = [];
         data.map((info) => {
-          // if (info.type === "WatchEvent") {
-          //   arrWatch.push(info);
-          // }
-          // return true;
           arrWatch.push(info);
           return true;
         });

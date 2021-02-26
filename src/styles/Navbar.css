@@ -17,6 +17,17 @@
    justify-content: space-between;
  }
 
+ .main-navbar__list_item {
+   display: flex;
+   align-items: center;
+   text-decoration: none;
+   color: white;
+ }
+
+ .main-navbar__list_item:hover {
+   color: tomato;
+ }
+
  .main-navbar__list li {
    display: flex;
    align-items: center;
@@ -94,6 +105,11 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+ }
+
+ .main-navbar__list_item.selectedNav {
+   color: tomato;
+   font-weight: 600;
  }
 
  /* .info__content {
