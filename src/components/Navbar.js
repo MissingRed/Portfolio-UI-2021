@@ -35,13 +35,6 @@ const Navbar = () => {
           <NavLink
             activeClassName="selectedNav"
             className="main-navbar__list_item"
-            to="/Cv"
-          >
-            Hoja de Vida
-          </NavLink>
-          <NavLink
-            activeClassName="selectedNav"
-            className="main-navbar__list_item"
             to="/Projects"
           >
             Proyectos

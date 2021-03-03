@@ -22,6 +22,7 @@
 .main-home__sidebar {
     /* background: #101113; */
     grid-area: sidebar;
+    
 }
 
 .main-home__content {

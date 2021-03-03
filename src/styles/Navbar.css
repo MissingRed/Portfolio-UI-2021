@@ -2,6 +2,8 @@
    /* background: #101113; */
    padding: 20px;
    padding-right: 50px;
+   /* position: sticky;
+   top: 0; */
  }
 
  .main-navbar__list {
