@@ -1,5 +1,7 @@
  .main-navbar {
-   /* background: #101113; */
+   /* background: rgba(16, 17, 19, 0.534);
+   -webkit-backdrop-filter: saturate(180%) blur(20px);
+   backdrop-filter: saturate(180%) blur(20px); */
    padding: 20px;
    padding-right: 50px;
    /* position: sticky;
@@ -52,7 +54,7 @@
    z-index: 120000;
    animation: animation_nav 0.5s forwards;
    z-index: 9000;
-   background: #19191a;
+   background: rgb(16, 17, 19);
    display: none;
  }
 
@@ -148,6 +150,7 @@
    }
  }
 
+ 
  @keyframes animation_nav {
    from {
      -webkit-transform: translateX(300px);

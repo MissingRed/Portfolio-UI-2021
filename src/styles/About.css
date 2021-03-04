@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
 }
 
 .danielrfimg {
@@ -91,6 +91,8 @@
     font-size: small;
     margin-right: 20px;
     letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
 }
 
 .main-about__button {
@@ -104,6 +106,9 @@
     font-family: 'Poppins', sans-serif;
     font-size: small;
     letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
 }
 
 .main-about__button img {
@@ -118,8 +123,64 @@
 }
 
 .email-danielrf:hover {
-
     color: rgba(255, 255, 255, 0.548);
+}
+
+.main-about__skills {
+    width: 100%;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px;
+    margin-top: 60px;
+}
+
+.main-about__box {
+    width: 70%;
+    margin: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(16, 17, 19);
+    /* color: black; */
+    padding: 60px;
+    border-radius: 5px;
+}
+
+.main-about__box h2 {
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 0;
+    color: tomato;
+}
+
+.item1 {
+    display: flex;
+    align-items: center;
+}
+
+.imgItem {
+    width: 50px;
+    height: 50px;
+    /* background: white; */
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.imgItem img {
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+}
+
+.textIttem p {
+    margin: 0;
+}
+
+.descriptionText {
+    /* width: 300px; */
+    font-size: small;
 }
 
 @media (max-width: 1050px) {
@@ -154,5 +215,22 @@
     }
     .danielrfimg {
         margin-bottom: 30px;
+    }
+    .items {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: repeat(1fr, 4);
+        grid-gap: 60px;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 550px) {
+    .main-about__box {
+        width: 100%;
+        margin: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
     }
 }
