@@ -138,6 +138,7 @@
 
 .imgProyect img {
     width: 220px;
+    /* height: 100%; */
     display: block;
 }
 

@@ -70,11 +70,35 @@ const Navbar = () => {
                   <li>
                     <img src="Img/search.svg" alt="Search" />
                   </li>
-                  <li>Inicio</li>
-                  <li>Acerca de mi</li>
-                  <li>Hoja de Vida</li>
-                  <li>Proyectos</li>
-                  <li>Contacto</li>
+                  <NavLink
+                    activeClassName="selectedNav"
+                    exact={true}
+                    className="main-navbar__list_item"
+                    to="/"
+                  >
+                    Inicio
+                  </NavLink>
+                  <NavLink
+                    activeClassName="selectedNav"
+                    className="main-navbar__list_item"
+                    to="/About-me"
+                  >
+                    Acerca de mi
+                  </NavLink>
+                  <NavLink
+                    activeClassName="selectedNav"
+                    className="main-navbar__list_item"
+                    to="/Projects"
+                  >
+                    Proyectos
+                  </NavLink>
+                  <NavLink
+                    activeClassName="selectedNav"
+                    className="main-navbar__list_item"
+                    to="/Contact-me"
+                  >
+                    Contacto
+                  </NavLink>
                 </ul>
                 <div className="networks__mobile">
                   <a

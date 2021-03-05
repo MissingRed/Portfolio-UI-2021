@@ -16,6 +16,7 @@ const Home = () => {
   const [porcentBar, setPorcentBar] = useState("");
   const [notFound, setNotFound] = useState(false);
   const [event, setEvent] = useState([]);
+  const [slider, setSlider] = useState(0);
 
   const setDate = (fechaString) => {
     var fechaSp = fechaString.split("-");
@@ -59,6 +60,17 @@ const Home = () => {
     }
   };
 
+  const timeOut = (num) =>
+    setTimeout(() => {
+      if (num >= 4) {
+        setSlider(0);
+        timeOut(slider + 1);
+      } else {
+        setSlider(num);
+        timeOut(num + 1);
+      }
+    }, 5000);
+
   useEffect(() => {
     fetch("https://api.github.com/users/MissingRed/repos")
       .then((res) => res.json())
@@ -66,14 +78,16 @@ const Home = () => {
         const array = [];
         data.map((rep) => {
           const name = rep.name;
+          const constdesc = rep.description;
           const fechas = rep.updated_at.slice(0, -10);
-          array.push({ fechas, name });
+          array.push({ fechas, name, constdesc });
           return true;
         });
         array.sort(function (a, b) {
           return setDate(a.fechas) - setDate(b.fechas);
         });
         setRepositories(array.reverse());
+        // console.log(array);
         setLoadingProject(false);
         getCommits(array[0].name);
       })
@@ -83,6 +97,7 @@ const Home = () => {
       });
 
     getEvents();
+    timeOut(1);
   }, []);
 
   return (
@@ -161,11 +176,33 @@ const Home = () => {
               </div>
               <div className="informationProyect">
                 <div>
-                  <p className="title">CODESHOP</p>
-                  <p className="description">
+                  {/* <p className="title">{repositories[0].name}</p> */}
+                  {notFound ? (
+                    "404"
+                  ) : loadingProject ? (
+                    "Cargando..."
+                  ) : slider === 1 ? (
+                    <p className="title">{repositories[0].name}</p>
+                  ) : slider === 2 ? (
+                    <p className="title">{repositories[1].name}</p>
+                  ) : (
+                    <p className="title">{repositories[2].name}</p>
+                  )}
+                  {notFound ? (
+                    "404"
+                  ) : loadingProject ? (
+                    "Cargando..."
+                  ) : slider === 1 ? (
+                    <p className="description">{repositories[0].constdesc}</p>
+                  ) : slider === 2 ? (
+                    <p className="description">{repositories[1].constdesc}</p>
+                  ) : (
+                    <p className="description">{repositories[2].constdesc}</p>
+                  )}
+                  {/* <p className="description">
                     CodeShop es una tienda Online de venta de videojuegos en
                     formato digital
-                  </p>
+                  </p> */}
                 </div>
                 <p className="read_More">Leer Mas</p>
               </div>
