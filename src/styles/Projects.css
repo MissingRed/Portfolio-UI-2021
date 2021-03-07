@@ -5,10 +5,85 @@
 }
 
 .main-projects {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: .5fr 1fr;
 }
 
+.first {
+    background: rgba(112, 112, 112, 0);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(300%) blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.buttonAll {
+    width: 100%;
+    display: flex;
+}
+
+.buttonAll p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.first__img {
+    width: 100%;
+}
+
+.grid__img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.second {
+    padding: 80px;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.buttons__project {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons__project img {
+    width: 30px;
+    display: block;
+}
+
+.ant_next__button {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.content__second h2 {
+    margin: 0;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.content__second p {
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.description__git {
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* 
 .main-projects h1 {
     font-size: 3rem;
     letter-spacing: 2px;
@@ -47,7 +122,7 @@
 .project__item {
     width: 340px;
     height: 190px;
-    /* background: gray; */
+ 
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -60,10 +135,9 @@
 }
 
 .project__item img {
-    width: 80%;
-    /* width: 340px; */
-    /* height: 100%; */
-}
+    width: 70%;
+   
+} */
 
 @media (max-width: 1050px) {
     .filters {

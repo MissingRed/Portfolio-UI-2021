@@ -17,7 +17,39 @@ const Projects = () => {
         <div className="main-projects__content">
           <Navbar />
           <div className="main-projects">
-            <h1>Proyectos</h1>
+            <div className="first">
+              <span></span>
+              <img src="Img/Mockup2.png" alt="" className="first__img" />
+              <div className="buttonAll">
+                <img src="Img/grid.svg" alt="" className="grid__img" />
+                <p>VER TODOS</p>
+              </div>
+            </div>
+            <div className="second">
+              <div className="content__second">
+                <h2>DANIELRF</h2>
+                <p>Portafoli web Daniel Rodriguez - 2021</p>
+                <div className="description__git">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                  accusamus ipsa asperiores, tempora provident quam aperiam
+                  commodi ea corporis, vitae porro est officia nam! Officia
+                  blanditiis cupiditate reiciendis cum quae?
+                </div>
+                <p>Repositorio: </p>
+                <p>Contribuyentes: </p>
+              </div>
+              <div className="buttons__project">
+                <div className="ant_next__button">
+                  <img src="Img/left.svg" alt="" />
+                  PREV
+                </div>
+                <div className="ant_next__button">
+                  NEXT
+                  <img src="Img/right.svg" alt="" />
+                </div>
+              </div>
+            </div>
+            {/* <h1>Proyectos</h1>
             <div className="filters">
               <p className="selected">Todos </p>
               <p>Laptop </p>
@@ -52,7 +84,7 @@ const Projects = () => {
                 <img src="Img/Mockup8.png" alt="" />
                 <p>EduKids</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
