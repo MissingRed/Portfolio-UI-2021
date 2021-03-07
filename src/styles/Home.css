@@ -22,7 +22,6 @@
 .main-home__sidebar {
     /* background: #101113; */
     grid-area: sidebar;
-    
 }
 
 .main-home__content {
@@ -227,7 +226,6 @@
 }
 
 @media (max-width: 640px) {
-
     .presentation {
         padding: 25px;
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Projects.css";
 import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
@@ -8,6 +8,76 @@ const Projects = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
+
+  const [num, setNum] = useState(0);
+  const [repositories, setRepositories] = useState([]);
+  const [images, setImages] = useState([]);
+
+  const [loadingProject, setLoadingProject] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  const addNum = () => {
+    if (num === 6) {
+      setNum(0);
+    } else {
+      setNum(num + 1);
+    }
+  };
+
+  const deleteNum = () => {
+    if (num === 0) {
+      setNum(6);
+    } else {
+      setNum(num - 1);
+    }
+  };
+
+  const setDate = (fechaString) => {
+    var fechaSp = fechaString.split("-");
+    var anio = fechaSp[0];
+    var mes = fechaSp[1] - 1;
+    var dia = fechaSp[2];
+
+    return new Date(anio, mes, dia);
+  };
+
+  const projects = () => {
+    fetch("https://api.github.com/users/MissingRed/repos")
+      .then((res) => res.json())
+      .then((data) => {
+        const array = [];
+        data.map((rep) => {
+          const name = rep.name;
+          const constdesc = rep.description;
+          const url = rep.html_url;
+          const fechas = rep.updated_at.slice(0, -10);
+          array.push({ fechas, name, constdesc, url });
+          return true;
+        });
+        array.sort(function (a, b) {
+          return setDate(a.fechas) - setDate(b.fechas);
+        });
+        setRepositories(array.reverse());
+        setLoadingProject(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setNotFound(true);
+      });
+  };
+
+  useEffect(() => {
+    projects();
+    setImages([
+      "https://repository-images.githubusercontent.com/341706388/1fb2ac80-7ed1-11eb-81d6-ec6ad9b24c21",
+      "https://repository-images.githubusercontent.com/344655480/981a6d00-7ed3-11eb-91e6-aa70c107b186",
+      "https://repository-images.githubusercontent.com/312438893/addc6200-7ed4-11eb-9e02-2e2fad688bdc",
+      "https://repository-images.githubusercontent.com/342668568/62798200-7edb-11eb-9fb8-258ded4dd0bd",
+      "https://repository-images.githubusercontent.com/336101675/edf31300-7edb-11eb-8183-caf5773e6b73",
+      "https://repository-images.githubusercontent.com/345266973/fbf56380-7edc-11eb-85a1-23b7ee5a996f",
+      "https://repository-images.githubusercontent.com/313143497/7c699380-7ee0-11eb-8052-1221ba6fe82d",
+    ]);
+  }, []);
   return (
     <>
       <div className="main-home__grid" style={style}>
@@ -19,7 +89,7 @@ const Projects = () => {
           <div className="main-projects">
             <div className="first">
               <span></span>
-              <img src="Img/Mockup2.png" alt="" className="first__img" />
+              <img src={images[num]} alt="" className="first__img" />
               <div className="buttonAll">
                 <img src="Img/grid.svg" alt="" className="grid__img" />
                 <p>VER TODOS</p>
@@ -27,64 +97,40 @@ const Projects = () => {
             </div>
             <div className="second">
               <div className="content__second">
-                <h2>DANIELRF</h2>
-                <p>Portafoli web Daniel Rodriguez - 2021</p>
-                <div className="description__git">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-                  accusamus ipsa asperiores, tempora provident quam aperiam
-                  commodi ea corporis, vitae porro est officia nam! Officia
-                  blanditiis cupiditate reiciendis cum quae?
+                <div>
+                  {notFound ? (
+                    "404"
+                  ) : loadingProject ? (
+                    "Cargando..."
+                  ) : (
+                    <div>
+                      <h2>{repositories[num].name}</h2>
+                      <p>{repositories[num].fechas}</p>
+                      <div className="description__git">
+                        {repositories[num].constdesc}
+                      </div>
+                      <p className="text__repo_cont">
+                        Repositorio: <a href={repositories[num].url}>GitHub</a>
+                      </p>
+                      {/* <p className="text__repo_cont">Contribuyentes: </p> */}
+                    </div>
+                  )}
                 </div>
-                <p>Repositorio: </p>
-                <p>Contribuyentes: </p>
               </div>
               <div className="buttons__project">
-                <div className="ant_next__button">
+                <button className="ant_next__button" onClick={deleteNum}>
                   <img src="Img/left.svg" alt="" />
                   PREV
-                </div>
-                <div className="ant_next__button">
+                </button>
+                <button className="ant_next__button" onClick={addNum}>
                   NEXT
                   <img src="Img/right.svg" alt="" />
-                </div>
+                </button>
+                {/* 
+                <div className="ant_next__button"></div>
+                <div className="ant_next__button"></div> */}
               </div>
             </div>
-            {/* <h1>Proyectos</h1>
-            <div className="filters">
-              <p className="selected">Todos </p>
-              <p>Laptop </p>
-              <p>Smartphone</p>
-            </div>
-            <div className="main-projects__grid">
-              <div className="project__item">
-                <img src="Img/Mockup2.png" alt="" />
-                <p>Portafolio</p>
-              </div>
-              <div className="project__item">
-                <img src="Img/Mockup3.png" alt="" />
-                <p>Utopicos</p>
-              </div>
-              <div className="project__item">
-                <img src="Img/Mockup4.png" alt="" />
-                <p>Acreditación USC</p>
-              </div>
-              <div className="project__item">
-                <img src="Img/Mockup5.png" alt="" />
-                <p>Bush.gg</p>
-              </div>
-              <div className="project__item">
-                <img src="Img/Mockup6.png" alt="" />
-                <p>MasterPC</p>
-              </div>
-              <div className="project__item">
-                <img src="Img/Mockup7.png" alt="" />
-                <p>CodeShop</p>
-              </div>
-              <div className="project__item">
-                <img src="Img/Mockup8.png" alt="" />
-                <p>EduKids</p>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

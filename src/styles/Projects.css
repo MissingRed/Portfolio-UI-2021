@@ -12,7 +12,7 @@
 .first {
     background: rgba(112, 112, 112, 0);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(300%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -64,6 +64,13 @@
     display: flex;
     align-items: center;
     font-size: 14px;
+    background: none;
+    border: 0;
+    color: inherit;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
 }
 
 .content__second h2 {
@@ -72,15 +79,26 @@
     font-weight: 400;
 }
 
+.content__second a{
+
+    color: white;
+    font-weight: 500;
+}
+
 .content__second p {
     margin: 0;
     letter-spacing: 2px;
+    font-weight: 200;
 }
 
 .description__git {
     width: 50%;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.text__repo_cont {
+    font-size: 14px;
 }
 
 /* 
