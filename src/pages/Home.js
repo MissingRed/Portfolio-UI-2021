@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-
+import setDate from "../Data/Date";
 import "../styles/Home.css";
 
 const Home = () => {
@@ -17,15 +17,6 @@ const Home = () => {
   const [notFound, setNotFound] = useState(false);
   const [event, setEvent] = useState([]);
   const [slider, setSlider] = useState(0);
-
-  const setDate = (fechaString) => {
-    var fechaSp = fechaString.split("-");
-    var anio = fechaSp[0];
-    var mes = fechaSp[1] - 1;
-    var dia = fechaSp[2];
-
-    return new Date(anio, mes, dia);
-  };
 
   const getCommits = async (name) => {
     try {
