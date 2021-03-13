@@ -3,8 +3,8 @@ import "../styles/Projects.css";
 import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import imagesGit from "../Data/Images";
-import setDate from "../Data/Date";
+// import imagesGit from "../Data/Images";
+// import setDate from "../Data/Date";
 import GitHubRepos from "../Data/GithubRepos";
 
 const Projects = () => {
@@ -14,13 +14,12 @@ const Projects = () => {
 
   const [num, setNum] = useState(0);
   const [repositories, setRepositories] = useState([]);
-  const [images, setImages] = useState([]);
-
+  // const [images, setImages] = useState([]);
   const [loadingProject, setLoadingProject] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
   const addNum = () => {
-    if (num === 6) {
+    if (num === 7) {
       setNum(0);
     } else {
       setNum(num + 1);
@@ -29,15 +28,20 @@ const Projects = () => {
 
   const deleteNum = () => {
     if (num === 0) {
-      setNum(6);
+      setNum(7);
     } else {
       setNum(num - 1);
     }
   };
 
   const projects = () => {
-    setRepositories(GitHubRepos);
-    setLoadingProject(false);
+    try {
+      setRepositories(GitHubRepos);
+      setLoadingProject(false);
+    } catch (error) {
+      setNotFound(true);
+    }
+
     // fetch("https://api.github.com/users/MissingRed/repos")
     //   .then((res) => res.json())
     //   .then((data) => {
@@ -74,7 +78,7 @@ const Projects = () => {
 
   useEffect(() => {
     projects();
-    setImages(imagesGit);
+    // setImages(imagesGit);
   }, []);
 
   return (
@@ -119,13 +123,32 @@ const Projects = () => {
                   ) : (
                     <p className="text__repo_cont">
                       Colaboradores:{" "}
-                      <a href={repositories[num].Contributors}>
+                      <a
+                        href={repositories[num].Contributors}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {repositories[num].ContributorsName}
+                      </a>
+                      {repositories[num].Contributors2 !== "" ? " y " : ""}
+                      <a
+                        href={repositories[num].Contributors2}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {repositories[num].ContributorsName2}
                       </a>
                     </p>
                   )}
                   <p className="text__repo_cont">
-                    Repositorio: <a href={repositories[num].Link}>GitHub</a>
+                    Repositorio:{" "}
+                    <a
+                      href={repositories[num].Link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
                   </p>
                 </div>
                 <div className="buttons__project">

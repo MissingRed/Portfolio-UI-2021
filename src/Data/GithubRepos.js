@@ -11,6 +11,8 @@ const GitHubRepos = [
     Tools: "React",
     Contributors: "",
     ContributorsName: "",
+    Contributors2: "",
+    ContributorsName2: "",
   },
   {
     img:
@@ -23,6 +25,8 @@ const GitHubRepos = [
     Tools: "React",
     Contributors: "",
     ContributorsName: "",
+    Contributors2: "",
+    ContributorsName2: "",
   },
   {
     img:
@@ -36,6 +40,8 @@ const GitHubRepos = [
     Tools: "React, MongoDB",
     Contributors: "https://github.com/JuandaGarcia",
     ContributorsName: "JuandaGarcia",
+    Contributors2: "",
+    ContributorsName2: "",
   },
   {
     img:
@@ -44,11 +50,13 @@ const GitHubRepos = [
     date: "2018-06-12",
     description:
       "MasterPC es una tienda virtual para la venta de componentes informaticos.",
-    Link: "https://github.com/MissingRed/Bush-lol",
+    Link: "https://github.com/MissingRed/MasterPC",
     Plataform: "Web",
     Tools: "Html, Css, JavaSript",
     Contributors: "https://github.com/JuandaGarcia",
     ContributorsName: "JuandaGarcia",
+    Contributors2: "",
+    ContributorsName2: "",
   },
   {
     img:
@@ -62,6 +70,8 @@ const GitHubRepos = [
     Tools: "React, Firebase, Paypal",
     Contributors: "",
     ContributorsName: "",
+    Contributors2: "",
+    ContributorsName2: "",
   },
   {
     img:
@@ -75,6 +85,8 @@ const GitHubRepos = [
     Tools: "React, Firebase",
     Contributors: "",
     ContributorsName: "",
+    Contributors2: "",
+    ContributorsName2: "",
   },
   {
     img:
@@ -88,6 +100,23 @@ const GitHubRepos = [
     Tools: "Ionic, Angular, Firebase",
     Contributors: "",
     ContributorsName: "",
+    Contributors2: "",
+    ContributorsName2: "",
+  },
+  {
+    img:
+      "https://repository-images.githubusercontent.com/260291930/b4fce780-838e-11eb-947a-1956364d584d",
+    name: "Utopicos Target Viewer",
+    date: "2020-05-11",
+    description:
+      "Utópicos Target Viewer es un visor en realidad aumentada para el periódico Utópicos, consta de un apartado Web como administrador multimedia y un aplicativo móvil en el cual interactúan los diferentes objetos tridimensionales.",
+    Link: "https://github.com/MissingRed/UtopicosWeb-React",
+    Plataform: "Web - Movil",
+    Tools: "React, Php, Unity, Firebase",
+    Contributors: "https://github.com/sirzes02",
+    ContributorsName: "S_Varela",
+    Contributors2: "https://github.com/JuandaGarcia",
+    ContributorsName2: "JuandaGarcia",
   },
 ];
 

@@ -36,7 +36,7 @@
     text-decoration: none;
 }
 
-.networks a:hover, .main-logo:hover {
+.networks a:hover:hover {
     color: tomato;
     cursor: pointer;
 }
