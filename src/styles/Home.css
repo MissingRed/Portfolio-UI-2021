@@ -131,14 +131,15 @@
 }
 
 .imgProyect {
-    width: 220px;
-    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
 }
 
 .imgProyect img {
-    width: 220px;
-    /* height: 100%; */
+    width: 180px;
     display: block;
+    margin: 20px;
 }
 
 .informationProyect {
@@ -194,6 +195,12 @@
     padding-top: 5px;
     font-weight: 200;
 }
+
+.read_More {
+    color: white;
+    text-decoration: none;    
+}
+
 
 @media (max-width: 1050px) {
     .main-home__grid {

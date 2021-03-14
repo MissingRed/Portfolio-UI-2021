@@ -4,6 +4,8 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import setDate from "../Data/Date";
 import "../styles/Home.css";
+import GitHubRepos from "../Data/GithubRepos";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const style = {
@@ -11,8 +13,11 @@ const Home = () => {
   };
 
   const [loadingProject, setLoadingProject] = useState(true);
+  const [loadingData, setLoadingData] = useState(true);
+  const [notFoundData, setNotFoundData] = useState(false);
   const [loadingEvent, setLoadingEvent] = useState(true);
   const [repositories, setRepositories] = useState([]);
+  const [repositoriesLocal, setRepositoriesLocal] = useState([]);
   const [porcentBar, setPorcentBar] = useState("");
   const [notFound, setNotFound] = useState(false);
   const [event, setEvent] = useState([]);
@@ -31,6 +36,15 @@ const Home = () => {
 
   const porcent = {
     width: `${porcentBar}`,
+  };
+
+  const projects = () => {
+    try {
+      setRepositoriesLocal(GitHubRepos);
+      setLoadingData(false);
+    } catch (error) {
+      setNotFoundData(true);
+    }
   };
 
   const getEvents = async () => {
@@ -60,7 +74,7 @@ const Home = () => {
         setSlider(num);
         timeOut(num + 1);
       }
-    }, 5000);
+    }, 7000);
 
   useEffect(() => {
     fetch("https://api.github.com/users/MissingRed/repos")
@@ -88,6 +102,7 @@ const Home = () => {
       });
 
     getEvents();
+    projects();
     timeOut(1);
   }, []);
 
@@ -161,43 +176,30 @@ const Home = () => {
                 </div>
               )}
             </div>
-            <div className="proyectView">
-              <div className="imgProyect">
-                <img src="Img/Mockup.png" alt="Mockup" />
-              </div>
-              <div className="informationProyect">
-                <div>
-                  {/* <p className="title">{repositories[0].name}</p> */}
-                  {notFound ? (
-                    "404"
-                  ) : loadingProject ? (
-                    "Cargando..."
-                  ) : slider === 1 ? (
-                    <p className="title">{repositories[0].name}</p>
-                  ) : slider === 2 ? (
-                    <p className="title">{repositories[1].name}</p>
-                  ) : (
-                    <p className="title">{repositories[2].name}</p>
-                  )}
-                  {notFound ? (
-                    "404"
-                  ) : loadingProject ? (
-                    "Cargando..."
-                  ) : slider === 1 ? (
-                    <p className="description">{repositories[0].constdesc}</p>
-                  ) : slider === 2 ? (
-                    <p className="description">{repositories[1].constdesc}</p>
-                  ) : (
-                    <p className="description">{repositories[2].constdesc}</p>
-                  )}
-                  {/* <p className="description">
-                    CodeShop es una tienda Online de venta de videojuegos en
-                    formato digital
-                  </p> */}
+            {notFoundData ? (
+              "404"
+            ) : loadingData ? (
+              "Cargando..."
+            ) : (
+              <div className="proyectView">
+                <div className="imgProyect">
+                  <img src={repositoriesLocal[slider].img} alt="Mockup" />
                 </div>
-                <p className="read_More">Leer Mas</p>
+                <div className="informationProyect">
+                  <div>
+                    <div>
+                      <p className="title">{repositoriesLocal[slider].name}</p>
+                      <p className="description">
+                        {repositoriesLocal[slider].description}
+                      </p>
+                    </div>
+                  </div>
+                  <Link className="read_More" to="Projects">
+                    Leer Mas
+                  </Link>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

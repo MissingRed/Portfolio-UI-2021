@@ -58,7 +58,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="main-about__skills">
+          {/* <div className="main-about__skills">
             <div className="main-about__box">
               <h2>ESPECIALIZADO EN</h2>
               <div className="items">
@@ -110,7 +110,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
