@@ -104,6 +104,10 @@ const Home = () => {
     getEvents();
     projects();
     timeOut(1);
+
+    return () => {
+      setRepositories([]);
+    };
   }, []);
 
   return (

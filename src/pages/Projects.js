@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/Projects.css";
 import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
@@ -14,9 +14,15 @@ const Projects = () => {
 
   const [num, setNum] = useState(0);
   const [repositories, setRepositories] = useState([]);
-  // const [images, setImages] = useState([]);
   const [loadingProject, setLoadingProject] = useState(true);
+  const [loadingAll, setLoadingAll] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [notFoundAll, setNotFoundAll] = useState(false);
+
+  const [openViewAll, setOpenViewAll] = useState(false);
+  const [allRepos, setAllRepos] = useState([]);
+
+  const viewAll = useRef();
 
   const addNum = () => {
     if (num === 7) {
@@ -34,6 +40,33 @@ const Projects = () => {
     }
   };
 
+  const handleClose = () => {
+    viewAll.current.style.animation = "animation_nav_reverse 0.5s";
+    viewAll.current.addEventListener("animationend", () =>
+      setOpenViewAll(false)
+    );
+  };
+
+  const apiRepos = () => {
+    fetch("https://api.github.com/users/MissingRed/repos")
+      .then((res) => res.json())
+      .then((data) => {
+        const array = [];
+        data.map((rep) => {
+          const name = rep.name;
+          const url = rep.html_url;
+          array.push({ name, url });
+          return true;
+        });
+        setAllRepos(array);
+        console.log(array);
+        setLoadingAll(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setNotFoundAll(true);
+      });
+  };
   const projects = () => {
     try {
       setRepositories(GitHubRepos);
@@ -41,42 +74,10 @@ const Projects = () => {
     } catch (error) {
       setNotFound(true);
     }
-
-    // fetch("https://api.github.com/users/MissingRed/repos")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     const array = [];
-    //     data.map((rep) => {
-    //       if (
-    //         rep.name === "Portfolio-UI-2021" ||
-    //         rep.name === "MasterPC" ||
-    //         rep.name === "CodeShop" ||
-    //         rep.name === "gif-expert-app" ||
-    //         rep.name === "CodeShopV3" ||
-    //         rep.name === "Bush-lol" ||
-    //         rep.name === "Preguntados-usc"
-    //       ) {
-    //         const name = rep.name;
-    //         const constdesc = rep.description;
-    //         const url = rep.html_url;
-    //         const fechas = rep.updated_at.slice(0, -10);
-    //         array.push({ fechas, name, constdesc, url });
-    //         return true;
-    //       }
-    //     });
-    //     array.sort(function (a, b) {
-    //       return setDate(a.fechas) - setDate(b.fechas);
-    //     });
-    //     setRepositories(array.reverse());
-    //     setLoadingProject(false);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     setNotFound(true);
-    //   });
   };
 
   useEffect(() => {
+    apiRepos();
     projects();
     // setImages(imagesGit);
   }, []);
@@ -104,7 +105,9 @@ const Projects = () => {
                 />
                 <div className="buttonAll">
                   <img src="Img/grid.svg" alt="" className="grid__img" />
-                  <p>VER TODOS</p>
+                  <button onClick={() => setOpenViewAll(!openViewAll)}>
+                    VER TODOS
+                  </button>
                 </div>
               </div>
               <div className="second">
@@ -162,6 +165,28 @@ const Projects = () => {
                   </button>
                 </div>
               </div>
+              {openViewAll ? (
+                <div className="view-all" ref={viewAll}>
+                  <div className="down-container">
+                    <img
+                      src="Img/down.svg"
+                      alt=""
+                      className="button-down"
+                      onClick={handleClose}
+                    />
+                  </div>
+                  <div className="projects-contianer">
+                    <h2>Otros Proyectos</h2>
+                    <div className="container-grid__items">
+                      {allRepos.map((res) => (
+                        <p key={res.name}>{res.name}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           )}
         </div>
