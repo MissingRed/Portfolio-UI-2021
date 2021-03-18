@@ -175,8 +175,10 @@ const Projects = () => {
                       onClick={handleClose}
                     />
                   </div>
-                  <div className="projects-contianer">
+                  <div className="down-title">
                     <h2>Otros Proyectos</h2>
+                  </div>
+                  <div className="projects-contianer">
                     <div className="container-grid__items">
                       {allRepos.map((res) => (
                         <p key={res.name}>{res.name}</p>
