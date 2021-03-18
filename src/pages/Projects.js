@@ -3,8 +3,6 @@ import "../styles/Projects.css";
 import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-// import imagesGit from "../Data/Images";
-// import setDate from "../Data/Date";
 import GitHubRepos from "../Data/GithubRepos";
 
 const Projects = () => {
@@ -15,13 +13,9 @@ const Projects = () => {
   const [num, setNum] = useState(0);
   const [repositories, setRepositories] = useState([]);
   const [loadingProject, setLoadingProject] = useState(true);
-  const [loadingAll, setLoadingAll] = useState(true);
   const [notFound, setNotFound] = useState(false);
-  const [notFoundAll, setNotFoundAll] = useState(false);
-
   const [openViewAll, setOpenViewAll] = useState(false);
   const [allRepos, setAllRepos] = useState([]);
-
   const viewAll = useRef();
 
   const addNum = () => {
@@ -41,7 +35,7 @@ const Projects = () => {
   };
 
   const handleClose = () => {
-    viewAll.current.style.animation = "animation_nav_reverse 0.5s";
+    viewAll.current.style.animation = "animation_all_repos_reverse 0.5s";
     viewAll.current.addEventListener("animationend", () =>
       setOpenViewAll(false)
     );
@@ -59,12 +53,9 @@ const Projects = () => {
           return true;
         });
         setAllRepos(array);
-        console.log(array);
-        setLoadingAll(false);
       })
       .catch((err) => {
         console.log(err);
-        setNotFoundAll(true);
       });
   };
   const projects = () => {
@@ -103,11 +94,12 @@ const Projects = () => {
                   alt=""
                   className="first__img"
                 />
-                <div className="buttonAll">
+                <div
+                  className="buttonAll"
+                  onClick={() => setOpenViewAll(!openViewAll)}
+                >
                   <img src="Img/grid.svg" alt="" className="grid__img" />
-                  <button onClick={() => setOpenViewAll(!openViewAll)}>
-                    VER TODOS
-                  </button>
+                  <button>VER TODOS</button>
                 </div>
               </div>
               <div className="second">
@@ -179,11 +171,16 @@ const Projects = () => {
                     <h2>Otros Proyectos</h2>
                   </div>
                   <div className="projects-contianer">
-                    <div className="container-grid__items">
-                      {allRepos.map((res) => (
-                        <p key={res.name}>{res.name}</p>
-                      ))}
-                    </div>
+                    {allRepos.map((res) => (
+                      <a
+                        href={res.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={res.name}
+                      >
+                        {res.name}
+                      </a>
+                    ))}
                   </div>
                 </div>
               ) : (

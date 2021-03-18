@@ -23,6 +23,7 @@
 .buttonAll {
     width: 100%;
     display: flex;
+    cursor: pointer;
 }
 
 .buttonAll p {
@@ -102,21 +103,26 @@
 }
 
 .view-all {
-
+    position: fixed;
     width: calc(100% - 100px);
-    position: absolute;
-    background: rgba(0, 0, 0, 0);
+    height: calc(100% - 80px);
+    padding: 20px;
+    padding-bottom: 40px;
+    padding-right: 50px;
+    background: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(30px);
     -webkit-transform: translateY(0);
     transform: translateY(0);
     -webkit-transition: 0.3s ease all;
     transition: 0.3s ease all;
-    animation: animation_nav 0.5s forwards;
+    animation: animation_all_repos 0.5s forwards;
 }
 
 .down-container {
- 
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .button-down {
@@ -136,6 +142,15 @@
 
 .projects-contianer {
     width: 100%;
+    height: calc(100% - 125px);
+    padding: 30px;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 330px);
+    grid-gap: 70px;
+    justify-content: space-around;
+    text-align: center;
+    /* height: 100%; */
     /* margin: 50px;
     margin-top: 0; */
 }
@@ -146,6 +161,27 @@
     font-weight: 400;
 }
 
+.projects-contianer a {
+    color: white;
+}
+
+.projects-contianer a:hover {
+    color: tomato;
+}
+
+.projects-contianer::-webkit-scrollbar {
+    width: 10px;
+}
+
+.projects-contianer::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.projects-contianer::-webkit-scrollbar-thumb {
+    background: tomato;
+    border-radius: 20px;
+}
+
 .buttonAll button {
     background: transparent;
     color: white;
@@ -154,11 +190,12 @@
     font-size: 14px;
     margin: 0;
     padding: 0;
-    cursor: pointer;
     outline: none;
+    cursor: pointer;
 }
 
 .container-grid__items {
+    height: 100%;
     /* height: 500px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
@@ -167,8 +204,6 @@
     align-items: center;
     justify-content: center; */
 }
-
-
 
 /* 
 .main-projects h1 {
@@ -235,7 +270,7 @@
     }
 }
 
-@keyframes animation_nav {
+@keyframes animation_all_repos {
     from {
         -webkit-transform: translateY(100%);
         transform: translateY(100%);
@@ -246,7 +281,7 @@
     }
 }
 
-@keyframes animation_nav_reverse {
+@keyframes animation_all_repos_reverse {
     from {
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
