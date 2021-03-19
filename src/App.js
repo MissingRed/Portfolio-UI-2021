@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Email from "./pages/Email";
-import Projects from "./pages/Projects";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route exact path="/About-me" component={About} />
           <Route exact path="/Email" component={Email} />
           <Route exact path="/Projects" component={Projects} />
+          <Route exact path="/Contact-me" component={Contact} />
         </Switch>
       </BrowserRouter>
     </>

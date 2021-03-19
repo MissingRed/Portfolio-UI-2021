@@ -9,7 +9,6 @@
     flex-direction: column;
     text-align: center;
     justify-content: space-between;
-    /* background: chocolate; */
 }
 
 .main-sidebar {
@@ -40,7 +39,3 @@
     color: tomato;
     cursor: pointer;
 }
-
-/* @media (max-width: 1100px) {
-   
-} */

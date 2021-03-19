@@ -1,0 +1,44 @@
+.main-contact h1 {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.form-Contact {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-Contact input, textarea {
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(108, 109, 110, 0);
+    -webkit-backdrop-filter: saturate(50%) blur(20px);
+    backdrop-filter: saturate(100%) blur(20px);
+    border: 1px solid #707070;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-Contact input {
+    padding: 10px;
+}
+
+.form-Contact button {
+    display: flex;
+    align-items: center;
+    background: #067EED;
+    border: 2px solid #067EED;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    color: inherit;
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    margin-right: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+}

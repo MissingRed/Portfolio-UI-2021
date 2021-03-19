@@ -14,7 +14,6 @@
 
 .danielrfimg {
     width: 350px;
-    /* border-radius: 50%; */
     margin-right: 30px;
 }
 
@@ -25,8 +24,6 @@
 }
 
 .main-about__container p {
-    /* font-size: 15px; */
-    /* width: 100%; */
     max-width: 550px;
 }
 
@@ -164,7 +161,6 @@
 .imgItem {
     width: 50px;
     height: 50px;
-    /* background: white; */
     border-radius: 50%;
     margin-right: 15px;
 }
@@ -180,7 +176,6 @@
 }
 
 .descriptionText {
-    /* width: 300px; */
     font-size: small;
 }
 

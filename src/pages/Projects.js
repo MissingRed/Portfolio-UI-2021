@@ -1,21 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../styles/Projects.css";
 import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import GitHubRepos from "../Data/GithubRepos";
-
+import "../styles/Projects.css";
 const Projects = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
-
-  const [num, setNum] = useState(0);
-  const [repositories, setRepositories] = useState([]);
   const [loadingProject, setLoadingProject] = useState(true);
-  const [notFound, setNotFound] = useState(false);
   const [openViewAll, setOpenViewAll] = useState(false);
+  const [repositories, setRepositories] = useState([]);
+  const [notFound, setNotFound] = useState(false);
   const [allRepos, setAllRepos] = useState([]);
+  const [num, setNum] = useState(0);
   const viewAll = useRef();
 
   const addNum = () => {
@@ -70,7 +68,6 @@ const Projects = () => {
   useEffect(() => {
     apiRepos();
     projects();
-    // setImages(imagesGit);
   }, []);
 
   return (

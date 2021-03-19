@@ -161,9 +161,6 @@
     grid-gap: 70px;
     justify-content: space-around;
     text-align: center;
-    /* height: 100%; */
-    /* margin: 50px;
-    margin-top: 0; */
 }
 
 .projects-contianer h2 {
@@ -237,7 +234,7 @@
     .content__second {
         margin-bottom: 50px;
     }
-    .view-all{
+    .view-all {
         width: 100%;
         padding: 0;
     }

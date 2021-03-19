@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import setDate from "../Data/Date";
-import "../styles/Home.css";
 import GitHubRepos from "../Data/GithubRepos";
-import { Link } from "react-router-dom";
-
+import "../styles/Home.css";
 const Home = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
-
+  const [repositoriesLocal, setRepositoriesLocal] = useState([]);
   const [loadingProject, setLoadingProject] = useState(true);
-  const [loadingData, setLoadingData] = useState(true);
   const [notFoundData, setNotFoundData] = useState(false);
   const [loadingEvent, setLoadingEvent] = useState(true);
   const [repositories, setRepositories] = useState([]);
-  const [repositoriesLocal, setRepositoriesLocal] = useState([]);
+  const [loadingData, setLoadingData] = useState(true);
   const [porcentBar, setPorcentBar] = useState("");
   const [notFound, setNotFound] = useState(false);
-  const [event, setEvent] = useState([]);
   const [slider, setSlider] = useState(0);
+  const [event, setEvent] = useState([]);
 
   const getCommits = async (name) => {
     try {
@@ -92,7 +90,6 @@ const Home = () => {
           return setDate(a.fechas) - setDate(b.fechas);
         });
         setRepositories(array.reverse());
-        // console.log(array);
         setLoadingProject(false);
         getCommits(array[0].name);
       })

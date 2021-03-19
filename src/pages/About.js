@@ -42,19 +42,6 @@ const About = () => {
                     Hoja de vida
                   </a>
                 </div>
-
-                {/*
-                <div className="flexbox">
-                  <a
-                    href="https://github.com/MissingRed"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="gitHubicon">
-                      <img src="Img/GitIcon.svg" alt="GitHub" />
-                    </div>
-                  </a>
-                </div> */}
               </div>
             </div>
           </div>
