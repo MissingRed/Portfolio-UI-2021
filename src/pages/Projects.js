@@ -136,13 +136,16 @@ const Projects = () => {
                     </p>
                   )}
                   <p className="text__repo_cont">
-                    Repositorio:{" "}
                     <a
                       href={repositories[num].Link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      GitHub
+                      <img
+                        src="Img/Git.svg"
+                        alt="GitHub"
+                        className="git_logo"
+                      />
                     </a>
                   </p>
                 </div>

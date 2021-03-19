@@ -61,6 +61,10 @@
     display: block;
 }
 
+.git_logo:hover {
+    filter: opacity(.7);
+}
+
 .ant_next__button {
     display: flex;
     align-items: center;
@@ -102,6 +106,11 @@
     padding-bottom: 5px;
 }
 
+.text__repo_cont img {
+    width: 35px;
+    margin-top: 15px;
+}
+
 .view-all {
     position: fixed;
     width: calc(100% - 100px);
@@ -138,6 +147,8 @@
 .down-title h2 {
     margin: 0;
     text-align: center;
+    letter-spacing: 2px;
+    font-weight: 400;
 }
 
 .projects-contianer {
@@ -196,70 +207,7 @@
 
 .container-grid__items {
     height: 100%;
-    /* height: 500px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
-    grid-gap: 50px;
-    justify-content: space-around;
-    align-items: center;
-    justify-content: center; */
 }
-
-/* 
-.main-projects h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-.main-projects p {
-    font-size: 20px;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-.filters {
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: space-around;
-}
-
-.selected {
-    color: tomato;
-}
-
-.main-projects__grid {
-    width: 90%;
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 340px);
-    grid-gap: 100px;
-    justify-content: space-around;
-}
-
-.project__item {
-    width: 340px;
-    height: 190px;
- 
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.project__item p {
-    margin: 0;
-}
-
-.project__item img {
-    width: 70%;
-   
-} */
 
 @media (max-width: 1050px) {
     .filters {
@@ -267,6 +215,31 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+    }
+    .first {
+        flex-direction: column-reverse;
+        padding-bottom: 0;
+    }
+    .buttonAll {
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    .main-projects {
+        grid-template-columns: none;
+        grid-template-rows: .5fr 1fr;
+    }
+    .second {
+        padding: 50px;
+    }
+    .description__git {
+        width: 100%;
+    }
+    .content__second {
+        margin-bottom: 50px;
+    }
+    .view-all{
+        width: 100%;
+        padding: 0;
     }
 }
 
