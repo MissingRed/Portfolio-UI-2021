@@ -1,6 +1,28 @@
+.main-contact {
+    height: 100%;
+}
+
 .main-contact h1 {
     text-align: center;
     letter-spacing: 2px;
+}
+
+.gridxd {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.contact-img {
+    background: rgb(94, 94, 94);
+}
+
+.contact-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    object-position: center;
 }
 
 .form-Contact {

@@ -17,7 +17,15 @@ const Contact = () => {
         <div className="main-about__content">
           <Navbar />
           <div className="main-contact">
-            <h1>Contactame!</h1>
+            {/* <div className="contact-img">
+              <img src="Img/pc-contact.jpg" alt="Contact" />
+            </div> */}
+            <div className="gridxd">
+              <div className="contact-img">
+                <img src="Img/pc-contact.jpg" alt="Contact" />
+              </div>
+            </div>
+            {/* <h1>Contactame!</h1>
             <div className="form-Contact">
               <form>
                 <p>Nombre</p>
@@ -30,7 +38,7 @@ const Contact = () => {
                 <textarea rows="4" cols="50" />
                 <button>Enviar Mensaje</button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

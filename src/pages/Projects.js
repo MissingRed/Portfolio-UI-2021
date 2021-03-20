@@ -8,7 +8,7 @@ const Projects = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
-  const [loadingProject, setLoadingProject] = useState(true);
+  const [loadingRepositories, setLoadingRepositories] = useState(true);
   const [openViewAll, setOpenViewAll] = useState(false);
   const [repositories, setRepositories] = useState([]);
   const [notFound, setNotFound] = useState(false);
@@ -59,7 +59,7 @@ const Projects = () => {
   const projects = () => {
     try {
       setRepositories(GitHubRepos);
-      setLoadingProject(false);
+      setLoadingRepositories(false);
     } catch (error) {
       setNotFound(true);
     }
@@ -80,7 +80,7 @@ const Projects = () => {
           <Navbar />
           {notFound ? (
             "404"
-          ) : loadingProject ? (
+          ) : loadingRepositories ? (
             "Cargando..."
           ) : (
             <div className="main-projects">
