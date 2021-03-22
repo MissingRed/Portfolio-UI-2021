@@ -36,7 +36,7 @@
     border: 0;
     border-radius: 10px;
     outline: none;
-    background: rgba(108, 109, 110, 0);
+    background: rgba(108, 109, 110, 0.774);
     -webkit-backdrop-filter: saturate(50%) blur(20px);
     backdrop-filter: saturate(100%) blur(20px);
     border: 1px solid #707070;
