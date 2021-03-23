@@ -7,22 +7,67 @@
     letter-spacing: 2px;
 }
 
-.gridxd {
+.grid-contact {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
 }
 
-.contact-img {
-    background: rgb(94, 94, 94);
+.abosolute {
+    position: absolute;
+    top: calc(50% - 100px);
+    width: calc(100% - 100px);
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.contact-img img {
-    object-fit: cover;
-    width: 100%;
+.content-1, .content-2 {
+    width: 500px;
     height: 300px;
-    object-position: center;
+    background: rgb(16, 17, 19);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.content-1 img, .content-2 img {
+    width: 40px;
+    height: 40px;
+}
+
+.contact-number {
+    color: tomato;
+}
+
+.content-2 button {
+    border: 0;
+    background: tomato;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px;
+    letter-spacing: 2px;
+}
+
+.contact-img {
+    background-image: url("https://images.unsplash.com/photo-1561494653-744c43aed0c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1929&q=80");
+    /* filter: grayscale(100%); */
+}
+
+.contact-filter {
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: saturate(50%) blur(50px);
+    backdrop-filter: saturate(50%) blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-filter h1 {
+    letter-spacing: 3px;
 }
 
 .form-Contact {

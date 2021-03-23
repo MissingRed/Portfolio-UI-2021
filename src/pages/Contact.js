@@ -20,9 +20,23 @@ const Contact = () => {
             {/* <div className="contact-img">
               <img src="Img/pc-contact.jpg" alt="Contact" />
             </div> */}
-            <div className="gridxd">
+            <div className="grid-contact">
               <div className="contact-img">
-                <img src="Img/pc-contact.jpg" alt="Contact" />
+                <div className="contact-filter">
+                  <h1>CONTACTAME</h1>
+                </div>
+                <div className="abosolute">
+                  <div className="content-1">
+                    <img src="Img/phone.svg" alt="phone" />
+                    <p>Puedes contactarme al numero telefonico</p>
+                    <p className="contact-number">+57 305 3907367</p>
+                  </div>
+                  <div className="content-2">
+                    <img src="Img/message.svg" alt="message" />
+                    <p>Enviar Mensaje directo</p>
+                    <button>Enviar mensaje</button>
+                  </div>
+                </div>
               </div>
             </div>
             {/* <h1>Contactame!</h1>
