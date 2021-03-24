@@ -5,7 +5,9 @@ const Sidebar = () => {
   return (
     <>
       <div className="main-sidebar">
-        <h1 className="main-logo">Dr</h1>
+        <div className="main-logo">
+          <img src="Img/Logo.svg" alt="" />
+        </div>
         <div className="networks">
           <a
             href="https://github.com/MissingRed"

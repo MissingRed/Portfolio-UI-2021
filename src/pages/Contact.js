@@ -8,6 +8,7 @@ const Contact = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
+
   return (
     <>
       <div className="main-home__grid" style={style}>
@@ -17,42 +18,41 @@ const Contact = () => {
         <div className="main-about__content">
           <Navbar />
           <div className="main-contact">
-            {/* <div className="contact-img">
-              <img src="Img/pc-contact.jpg" alt="Contact" />
-            </div> */}
-            <div className="grid-contact">
-              <div className="contact-img">
-                <div className="contact-filter">
-                  <h1>CONTACTAME</h1>
+            <div className="contact-form">
+              <h1 className="contact-title">Contactame</h1>
+              <p className="info-text">
+                Si tienes alguna pregunta, inquietud o sugerencia no dudes en
+                contactarme!
+              </p>
+              <div className="contact-form__form">
+                <div className="flex-box">
+                  <input
+                    type="text"
+                    placeholder="Nombre"
+                    className="input-name"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="input-email"
+                  />
                 </div>
-                <div className="abosolute">
-                  <div className="content-1">
-                    <img src="Img/phone.svg" alt="phone" />
-                    <p>Puedes contactarme al numero telefonico</p>
-                    <p className="contact-number">+57 305 3907367</p>
-                  </div>
-                  <div className="content-2">
-                    <img src="Img/message.svg" alt="message" />
-                    <p>Enviar Mensaje directo</p>
-                    <button>Enviar mensaje</button>
-                  </div>
-                </div>
+                <input
+                  type="text"
+                  placeholder="Asunto"
+                  className="input-subject"
+                />
+                <textarea
+                  type="text"
+                  placeholder="Mensaje"
+                  className="input-message"
+                />
+                <button className="send-button hvr-sweep-to-right">
+                  Enviar mensaje
+                </button>
               </div>
             </div>
-            {/* <h1>Contactame!</h1>
-            <div className="form-Contact">
-              <form>
-                <p>Nombre</p>
-                <input type="text" />
-                <p>Apellido</p>
-                <input type="text" />
-                <p>Correo</p>
-                <input type="text" />
-                <p>Comentarios/Preguntas</p>
-                <textarea rows="4" cols="50" />
-                <button>Enviar Mensaje</button>
-              </form>
-            </div> */}
+            <div className="contact-map "></div>
           </div>
         </div>
       </div>

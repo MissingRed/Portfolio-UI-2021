@@ -19,6 +19,17 @@
     margin: 0;
 }
 
+.main-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-logo img {
+    margin-top: 10px;
+    width: 30px;
+}
+
 .networks {
     line-height: 70px;
 }
