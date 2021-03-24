@@ -4,10 +4,13 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import GitHubRepos from "../Data/GithubRepos";
 import "../styles/Projects.css";
+import setDate from "../Data/Date";
+
 const Projects = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
+
   const [loadingRepositories, setLoadingRepositories] = useState(true);
   const [openViewAll, setOpenViewAll] = useState(false);
   const [repositories, setRepositories] = useState([]);
@@ -47,7 +50,8 @@ const Projects = () => {
         data.map((rep) => {
           const name = rep.name;
           const url = rep.html_url;
-          array.push({ name, url });
+          const date = rep.updated_at.slice(0, -10);
+          array.push({ name, url, date });
           return true;
         });
         setAllRepos(array);
@@ -172,14 +176,15 @@ const Projects = () => {
                   </div>
                   <div className="projects-contianer">
                     {allRepos.map((res) => (
-                      <a
-                        href={res.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={res.name}
-                      >
-                        {res.name}
-                      </a>
+                      <div className="repo__container" key={res.name}>
+                        <div className="title-repo">
+                          <p className="date-repo">{res.date}</p>
+                          <p className="name-repo">{res.name}</p>
+                        </div>
+                        <div className="back">
+                          <img src="Img/GitIcon.svg" alt="Git" />
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>

@@ -6,7 +6,8 @@
  .main-navbar__list {
    margin: 0;
    padding: 0;
-   width: 50%;
+   width: auto;
+   /*Era 50% con icono buscar*/
    min-width: 720px;
    float: right;
    height: 100%;

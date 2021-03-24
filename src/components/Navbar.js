@@ -46,9 +46,9 @@ const Navbar = () => {
           >
             Contacto
           </NavLink>
-          <li>
+          {/* <li>
             <img src="Img/search.svg" alt="Search" />
-          </li>
+          </li> */}
         </ul>
 
         <div className="responsive">
@@ -67,9 +67,9 @@ const Navbar = () => {
               </div>
               <div className="info__content">
                 <ul className="sidebar-menu__list">
-                  <li>
+                  {/* <li>
                     <img src="Img/search.svg" alt="Search" />
-                  </li>
+                  </li> */}
                   <NavLink
                     activeClassName="selectedNav"
                     exact={true}

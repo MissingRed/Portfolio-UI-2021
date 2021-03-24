@@ -3,11 +3,13 @@ import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import "../styles/Contact.css";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const Contact = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
+  const position = [3.42158, -76.5205];
 
   return (
     <>
@@ -52,7 +54,20 @@ const Contact = () => {
                 </button>
               </div>
             </div>
-            <div className="contact-map "></div>
+            <div className="contact-map">
+              <MapContainer center={position} zoom={7} scrollWheelZoom={true}>
+                <TileLayer
+                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png"
+                />
+                <Marker position={position}>
+                  <Popup>
+                    <center>🏠</center>
+                    <br /> Daniel Rodriguez
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
           </div>
         </div>
       </div>

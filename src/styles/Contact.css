@@ -12,13 +12,18 @@
     backdrop-filter: saturate(00%) blur(20px);
 }
 
+.leaflet-container {
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
 .contact-title {
     font-size: 3rem;
 }
 
 .flex-box {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .input-email, .input-name {
@@ -54,7 +59,7 @@
 }
 
 .input-subject {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .input-message {
@@ -72,7 +77,7 @@
 }
 
 .info-text {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .send-button {
