@@ -4,12 +4,11 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import GitHubRepos from "../Data/GithubRepos";
 import "../styles/Projects.css";
-import setDate from "../Data/Date";
 
 const Projects = () => {
-  const style = {
-    backgroundImage: `url(${background})`,
-  };
+  // const style = {
+  //   backgroundImage: `url(${background})`,
+  // };
 
   const [loadingRepositories, setLoadingRepositories] = useState(true);
   const [openViewAll, setOpenViewAll] = useState(false);
@@ -76,7 +75,7 @@ const Projects = () => {
 
   return (
     <>
-      <div className="main-home__grid" style={style}>
+      <div className="main-home__grid">
         <div className="main-home__sidebar">
           <Sidebar />
         </div>

@@ -7,9 +7,9 @@ import setDate from "../Data/Date";
 import GitHubRepos from "../Data/GithubRepos";
 import "../styles/Home.css";
 const Home = () => {
-  const style = {
-    backgroundImage: `url(${background})`,
-  };
+  // const style = {
+  //   backgroundImage: `url(${background})`,
+  // };
   const [repositoriesLocal, setRepositoriesLocal] = useState([]);
   const [loadingProject, setLoadingProject] = useState(true);
   const [notFoundData, setNotFoundData] = useState(false);
@@ -109,7 +109,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="main-home__grid" style={style}>
+      <div className="main-home__grid">
         <div className="main-home__sidebar">
           <Sidebar />
         </div>
@@ -117,30 +117,34 @@ const Home = () => {
           <Navbar />
           <div className="main-home__container_info">
             <div className="actual_proyect">
-              <p>/ Proyecto Actual - {porcentBar}</p>
-              <div className="line_porcent">
-                <div className="actual_porcent" style={porcent}></div>
-              </div>
-              {notFound ? (
-                "404"
-              ) : loadingProject ? (
-                "Cargando..."
-              ) : (
-                <div>
-                  <p className="actual_name">{repositories[0].name}</p>
-                  <p className="last_name">{repositories[1].name}</p>
-                  <p className="last_name">{repositories[2].name}</p>
+              <div>
+                <p>/ Proyecto Actual - {porcentBar}</p>
+                <div className="line_porcent">
+                  <div className="actual_porcent" style={porcent}></div>
                 </div>
-              )}
+                {notFound ? (
+                  "404"
+                ) : loadingProject ? (
+                  "Cargando..."
+                ) : (
+                  <div>
+                    <p className="actual_name">{repositories[0].name}</p>
+                    <p className="last_name">{repositories[1].name}</p>
+                    <p className="last_name">{repositories[2].name}</p>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="presentation">
-              <h1>Hola soy Daniel!</h1>
-              <h1>Desarrollador Web</h1>
-              <div className="textinformation">
-                <p>
-                  Presentando mi colección de trabajo, una serie de proyectos
-                  personales que me han llevado hasta este punto.
-                </p>
+              <div>
+                <h1>Hola soy Daniel!</h1>
+                <h1>Desarrollador Web</h1>
+                <div className="textinformation">
+                  <p>
+                    Presentando mi colección de trabajo, una serie de proyectos
+                    personales que me han llevado hasta este punto.
+                  </p>
+                </div>
               </div>
             </div>
             <div className="liked">

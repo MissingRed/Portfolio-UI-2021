@@ -6,12 +6,12 @@ import "../styles/About.css";
 import { Link } from "react-router-dom";
 
 const About = () => {
-  const style = {
-    backgroundImage: `url(${background})`,
-  };
+  // const style = {
+  //   backgroundImage: `url(${background})`,
+  // };
   return (
     <>
-      <div className="main-home__grid" style={style}>
+      <div className="main-home__grid">
         <div className="main-home__sidebar">
           <Sidebar />
         </div>
@@ -24,11 +24,11 @@ const About = () => {
                 <h1>Desarrollador, Tester y estudiante</h1>
                 <p>
                   Hola mi nombre es Daniel Rodriguez, tecnólogo en sistemas de
-                  información y estudiante de ingeniería en sistemas de la
+                  información y estudiante de ingeniería de sistemas en la
                   ciudad Santiago de Cali, con buenos conocimientos en diversos
-                  lenguajes de programación como Java, JavaScript y SQL. También
-                  cuento con habilidades en Html y Css como también Frameworks
-                  Frontend de JavaScript como React y Angular.
+                  lenguajes de programación Java, JavaScript y SQL. También
+                  cuento con habilidades en Html y Css, Frameworks Frontend de
+                  JavaScript como React y Angular.
                 </p>
                 <div className="main-about__container_button">
                   <Link className="main-about__button_contact" to="/Contact-me">

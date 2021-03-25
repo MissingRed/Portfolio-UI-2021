@@ -5,12 +5,12 @@ import Navbar from "../components/Navbar";
 import "../styles/About.css";
 
 const Email = () => {
-  const style = {
-    backgroundImage: `url(${background})`,
-  };
+  // const style = {
+  //   backgroundImage: `url(${background})`,
+  // };
   return (
     <>
-      <div className="main-home__grid" style={style}>
+      <div className="main-home__grid">
         <div className="main-home__sidebar">
           <Sidebar />
         </div>

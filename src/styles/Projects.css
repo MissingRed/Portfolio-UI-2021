@@ -54,6 +54,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    z-index: 9000;
 }
 
 .buttons__project img {
@@ -76,6 +77,10 @@
     padding: 0;
     outline: none;
     cursor: pointer;
+}
+
+.content__second {
+    z-index: 8000;
 }
 
 .content__second h2 {
@@ -104,11 +109,13 @@
 .text__repo_cont {
     font-size: 14px;
     padding-bottom: 5px;
+    z-index: 9000;
 }
 
 .text__repo_cont img {
     width: 35px;
     margin-top: 15px;
+    z-index: 9000;
 }
 
 .date-repo {
@@ -137,6 +144,7 @@
     -webkit-transition: 0.3s ease all;
     transition: 0.3s ease all;
     animation: animation_all_repos 0.5s forwards;
+    z-index: 9000;
 }
 
 .down-container {

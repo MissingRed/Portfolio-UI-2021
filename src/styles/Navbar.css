@@ -1,6 +1,7 @@
  .main-navbar {
    padding: 20px;
    padding-right: 50px;
+   z-index: 9000;
  }
 
  .main-navbar__list {

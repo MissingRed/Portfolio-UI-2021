@@ -7,9 +7,10 @@
     padding-top: 30px;
     padding-left: 100px;
     padding-right: 100px;
-    background: rgba(108, 109, 110, 0);
+    /* background: rgba(108, 109, 110, 0);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(00%) blur(20px);
+    backdrop-filter: saturate(00%) blur(20px); */
+    z-index: 1000;
 }
 
 .leaflet-container {

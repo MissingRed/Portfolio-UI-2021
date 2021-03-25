@@ -9,9 +9,6 @@ import ContactForm from "../components/ContactForm";
 import Swal from "sweetalert2";
 
 const Contact = () => {
-  const style = {
-    backgroundImage: `url(${background})`,
-  };
   const position = [3.42158, -76.5205];
 
   const sendContactMessage = async (linkObject) => {
@@ -37,7 +34,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="main-home__grid" style={style}>
+      <div className="main-home__grid">
         <div className="main-home__sidebar">
           <Sidebar />
         </div>
