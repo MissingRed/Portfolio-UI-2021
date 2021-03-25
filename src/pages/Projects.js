@@ -176,7 +176,13 @@ const Projects = () => {
                   </div>
                   <div className="projects-contianer">
                     {allRepos.map((res) => (
-                      <div className="repo__container" key={res.name}>
+                      <a
+                        className="repo__container"
+                        key={res.name}
+                        href={res.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <div className="title-repo">
                           <p className="date-repo">{res.date}</p>
                           <p className="name-repo">{res.name}</p>
@@ -184,7 +190,7 @@ const Projects = () => {
                         <div className="back">
                           <img src="Img/GitIcon.svg" alt="Git" />
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>

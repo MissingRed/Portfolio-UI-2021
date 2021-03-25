@@ -79,10 +79,9 @@
 .main-about__button_contact {
     display: flex;
     align-items: center;
-    background: #067EED;
-    border: 2px solid #067EED;
+    background: tomato;
+    border: 1px solid tomato;
     padding: 10px 15px 10px 15px;
-    border-radius: 10px;
     color: inherit;
     font-family: 'Poppins', sans-serif;
     font-size: small;
@@ -90,15 +89,15 @@
     letter-spacing: 1px;
     cursor: pointer;
     outline: none;
+    text-decoration: none;
 }
 
 .main-about__button {
     display: flex;
     align-items: center;
     background: none;
-    border: 2px solid #067EED;
+    border: 1px solid tomato;
     padding: 10px 15px 10px 15px;
-    border-radius: 10px;
     color: inherit;
     font-family: 'Poppins', sans-serif;
     font-size: small;

@@ -4,12 +4,36 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import "../styles/Contact.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { db } from "../Data/Base";
+import ContactForm from "../components/ContactForm";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const style = {
     backgroundImage: `url(${background})`,
   };
   const position = [3.42158, -76.5205];
+
+  const sendContactMessage = async (linkObject) => {
+    try {
+      await db.collection("Bandeja de entrada").doc().set(linkObject);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Mensaje enviado con exito!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Error al enviar el mensaje",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
 
   return (
     <>
@@ -27,31 +51,7 @@ const Contact = () => {
                 contactarme!
               </p>
               <div className="contact-form__form">
-                <div className="flex-box">
-                  <input
-                    type="text"
-                    placeholder="Nombre"
-                    className="input-name"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="input-email"
-                  />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Asunto"
-                  className="input-subject"
-                />
-                <textarea
-                  type="text"
-                  placeholder="Mensaje"
-                  className="input-message"
-                />
-                <button className="send-button hvr-sweep-to-right">
-                  Enviar mensaje
-                </button>
+                <ContactForm {...{ sendContactMessage }} />
               </div>
             </div>
             <div className="contact-map">

@@ -3,6 +3,7 @@ import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import "../styles/About.css";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const style = {
@@ -30,11 +31,11 @@ const About = () => {
                   Frontend de JavaScript como React y Angular.
                 </p>
                 <div className="main-about__container_button">
-                  <button className="main-about__button_contact">
+                  <Link className="main-about__button_contact" to="/Contact-me">
                     Contáctame
-                  </button>
+                  </Link>
                   <a
-                    className="main-about__button"
+                    className="main-about__button hvr-sweep-to-right"
                     href="./Documents/CV_DANIEL_RODRIGUEZ.pdf"
                     download
                   >

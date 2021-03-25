@@ -111,13 +111,15 @@
     margin-top: 15px;
 }
 
-.date-repo, .name-repo {
+.date-repo {
     font-size: small;
+    color: tomato;
 }
 
 .name-repo {
     font-size: 14px;
     font-weight: bold;
+    color: black;
 }
 
 .view-all {
@@ -128,7 +130,7 @@
     padding-bottom: 40px;
     padding-right: 50px;
     background: rgba(0, 0, 0, 0.5);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    /* -webkit-backdrop-filter: saturate(180%) blur(20px); */
     backdrop-filter: saturate(180%) blur(30px);
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -177,14 +179,6 @@
     font-weight: 400;
 }
 
-.projects-contianer a {
-    color: white;
-}
-
-.projects-contianer a:hover {
-    color: tomato;
-}
-
 .projects-contianer::-webkit-scrollbar {
     width: 10px;
 }
@@ -215,14 +209,19 @@
 }
 
 .repo__container {
-    background: rgb(255, 255, 255);
-    color: black;
+    background-image: url("https://images.unsplash.com/photo-1532210317995-cc56d90177d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
     width: 300px;
     height: 150px;
     border-radius: 5px;
     display: flex;
     letter-spacing: 1px;
     padding: 20px;
+    text-decoration: none;
+    object-fit: cover;
+}
+
+.repo__container:hover {
+    box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.253);
 }
 
 .title-repo {

@@ -52,7 +52,9 @@ const Navbar = () => {
         </ul>
 
         <div className="responsive">
-          <h1 className="main-logo__navbar">Dr</h1>
+          <div className="main-logo__navbar">
+            <img src="Img/Logo.svg" alt="" />
+          </div>
           <img
             src="Img/align-justify_land.svg"
             alt="Op"

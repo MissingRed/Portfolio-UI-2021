@@ -135,7 +135,13 @@
      cursor: pointer;
    }
    .main-logo__navbar {
-     margin: 0;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+   }
+   .main-logo__navbar img {
+     width: 30px;
    }
  }
 
