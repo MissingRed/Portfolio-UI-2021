@@ -11,8 +11,8 @@
 
 .first {
     background: rgba(112, 112, 112, 0);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(100%) blur(5px);
+    backdrop-filter: saturate(100%) blur(5px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
