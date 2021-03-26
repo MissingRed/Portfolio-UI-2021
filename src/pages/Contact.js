@@ -52,7 +52,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="contact-map">
-              <MapContainer center={position} zoom={7} scrollWheelZoom={true}>
+              <MapContainer center={position} zoom={7} scrollWheelZoom={false}>
                 <TileLayer
                   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                   url="https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png"
