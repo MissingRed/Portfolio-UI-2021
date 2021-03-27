@@ -17,7 +17,7 @@ const Contact = () => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Mensaje enviado con exito!",
+        title: "El Mensaje se envio con exito!",
         showConfirmButton: false,
         timer: 1500,
       });
