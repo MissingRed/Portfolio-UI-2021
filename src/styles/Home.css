@@ -190,7 +190,6 @@
     }
 
     .actual_proyect {
-        z-index: 10000;
         display: flex;
         flex-direction: column;
         padding: 0px;
