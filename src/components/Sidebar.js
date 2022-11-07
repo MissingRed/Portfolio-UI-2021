@@ -1,14 +1,22 @@
 import React from "react";
 import "../styles/Sidebar.css";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <>
       <div className="main-sidebar">
-        <div className="main-logo">
+        <NavLink className="main-logo" to="/">
           <img src="Img/Logo.svg" alt="" />
-        </div>
+        </NavLink>
         <div className="networks">
+          <a
+            href="https://www.linkedin.com/in/daniel-rodriguez-33481815b/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p>In</p>
+          </a>
           <a
             href="https://github.com/MissingRed"
             target="_blank"

@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import background from "../pages/background.jpg";
+import { TwitterPicker } from "react-color";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import setDate from "../Data/Date";
 import GitHubRepos from "../Data/GithubRepos";
 import "../styles/Home.css";
 const Home = () => {
-  // const style = {
-  //   backgroundImage: `url(${background})`,
-  // };
   const [repositoriesLocal, setRepositoriesLocal] = useState([]);
   const [loadingProject, setLoadingProject] = useState(true);
   const [notFoundData, setNotFoundData] = useState(false);
@@ -20,6 +17,7 @@ const Home = () => {
   const [notFound, setNotFound] = useState(false);
   const [slider, setSlider] = useState(0);
   const [event, setEvent] = useState([]);
+  const [blockPickerColor, setBlockPickerColor] = useState("#000000");
 
   const getCommits = async (name) => {
     try {
@@ -75,6 +73,7 @@ const Home = () => {
     }, 7000);
 
   useEffect(() => {
+    document.body.style.background = blockPickerColor;
     fetch("https://api.github.com/users/MissingRed/repos")
       .then((res) => res.json())
       .then((data) => {
@@ -101,11 +100,14 @@ const Home = () => {
     getEvents();
     projects();
     timeOut(1);
-
-    return () => {
-      setRepositories([]);
-    };
-  }, []);
+    // return () => {
+    //   setRepositories([
+    //     { name: "Cargando" },
+    //     { name: "Cargando" },
+    //     { name: "Cargando" },
+    //   ]);
+    // };
+  }, [blockPickerColor]);
 
   return (
     <>
@@ -133,6 +135,13 @@ const Home = () => {
                     <p className="last_name">{repositories[2].name}</p>
                   </div>
                 )}
+                <br />
+                <TwitterPicker
+                  color={blockPickerColor}
+                  onChange={(color) => {
+                    setBlockPickerColor(color.hex);
+                  }}
+                />
               </div>
             </div>
             <div className="presentation">
@@ -199,7 +208,13 @@ const Home = () => {
                       </p>
                     </div>
                   </div>
-                  <Link className="read_More" to="Projects">
+                  <Link
+                    className="read_More"
+                    to={{
+                      pathname: "Projects",
+                      state: slider,
+                    }}
+                  >
                     Leer Mas
                   </Link>
                 </div>

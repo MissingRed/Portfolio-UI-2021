@@ -1,15 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import GitHubRepos from "../Data/GithubRepos";
 import "../styles/Projects.css";
 
-const Projects = () => {
-  // const style = {
-  //   backgroundImage: `url(${background})`,
-  // };
-
+const Projects = ({ location }) => {
   const [loadingRepositories, setLoadingRepositories] = useState(true);
   const [openViewAll, setOpenViewAll] = useState(false);
   const [repositories, setRepositories] = useState([]);
@@ -61,13 +56,16 @@ const Projects = () => {
   };
   const projects = () => {
     try {
-      setRepositories(GitHubRepos);
+      if (location.state) {
+        setRepositories([GitHubRepos.at(location.state)]);
+      } else {
+        setRepositories(GitHubRepos);
+      }
       setLoadingRepositories(false);
     } catch (error) {
       setNotFound(true);
     }
   };
-
   useEffect(() => {
     apiRepos();
     projects();

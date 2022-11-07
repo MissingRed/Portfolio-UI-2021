@@ -173,6 +173,10 @@
     text-decoration: none;
 }
 
+.read_More:hover {
+    color: tomato;
+}
+
 @media (max-width: 1050px) {
     .presentation {
         padding: 0;
@@ -184,7 +188,9 @@
         align-items: center;
         justify-content: center;
     }
+
     .actual_proyect {
+        z-index: 10000;
         display: flex;
         flex-direction: column;
         padding: 0px;
@@ -194,17 +200,21 @@
         align-items: center;
         justify-content: center;
     }
+
     .main-home__grid {
         grid-template-columns: 1fr;
         grid-template-areas: "content";
     }
+
     .main-home__sidebar {
         display: none;
     }
+
     .main-home__container_info {
         grid-template-rows: 1fr 1fr;
         grid-template-columns: none;
     }
+
     .liked, .proyectView {
         display: none;
     }
@@ -214,6 +224,7 @@
     .presentation h1 {
         font-size: 1.5rem;
     }
+
     .presentation p {
         font-size: 14px;
     }

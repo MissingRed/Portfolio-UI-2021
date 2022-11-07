@@ -217,7 +217,8 @@
 }
 
 .repo__container {
-    background-image: url("https://images.unsplash.com/photo-1532210317995-cc56d90177d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+    /* background-image: url("https://images.unsplash.com/photo-1532210317995-cc56d90177d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"); */
+    background: white;
     width: 300px;
     height: 150px;
     border-radius: 5px;
@@ -261,27 +262,34 @@
         align-items: center;
         justify-content: space-around;
     }
+
     .first {
         flex-direction: column-reverse;
         padding-bottom: 0;
     }
+
     .buttonAll {
         margin-bottom: 20px;
         justify-content: center;
     }
+
     .main-projects {
         grid-template-columns: none;
         grid-template-rows: .5fr 1fr;
     }
+
     .second {
         padding: 50px;
     }
+
     .description__git {
         width: 100%;
     }
+
     .content__second {
         margin-bottom: 50px;
     }
+
     .view-all {
         width: 100%;
         padding: 0;
@@ -293,6 +301,7 @@
         -webkit-transform: translateY(100%);
         transform: translateY(100%);
     }
+
     to {
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
@@ -304,6 +313,7 @@
         -webkit-transform: translateY(0px);
         transform: translateY(0px);
     }
+
     to {
         -webkit-transform: translateY(100%);
         transform: translateY(100%);

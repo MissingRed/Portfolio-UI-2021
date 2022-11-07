@@ -44,6 +44,10 @@
     outline: none;
 }
 
+.input-operator {
+    color: tomato;
+}
+
 .input-email {
     margin-left: 2%;
 }
@@ -173,28 +177,36 @@
         grid-template-columns: none;
         grid-template-rows: 1fr 1fr;
     }
+
     .contact-form {
         padding-left: 30px;
         padding-right: 30px;
     }
+
     .flex-box {
         flex-direction: column;
     }
+
     .input-name {
         margin-bottom: 15px;
     }
+
     .input-email {
         margin-left: 0;
     }
+
     .valid-send {
         flex-direction: column;
     }
+
     .input-validate {
         width: 50%;
     }
+
     .send-button {
         margin-top: 15px;
     }
+
     .contact-map {
         margin: 30px;
     }

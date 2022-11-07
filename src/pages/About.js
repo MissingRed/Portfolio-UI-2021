@@ -1,14 +1,10 @@
 import React from "react";
-import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import "../styles/About.css";
 import { Link } from "react-router-dom";
 
 const About = () => {
-  // const style = {
-  //   backgroundImage: `url(${background})`,
-  // };
   return (
     <>
       <div className="main-home__grid">

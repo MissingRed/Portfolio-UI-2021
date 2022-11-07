@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "../styles/Navbar.css";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ color }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const sidebarMobile = useRef();
 

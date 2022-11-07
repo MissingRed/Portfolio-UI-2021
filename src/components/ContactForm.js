@@ -1,45 +1,12 @@
 import React, { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
-const ContactForm = ({ sendContactMessage }) => {
-  const initStateValue = {
-    nombre: "",
-    email: "",
-    asunto: "",
-    mensaje: "",
-    validate_num: "",
-  };
-  const [values, setValues] = useState(initStateValue);
+const ContactForm = () => {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [total, setTotal] = useState(0);
-
-  const [emailInvalid, setEmailInvalid] = useState(false);
   const [calcInvalid, setCalcInvalid] = useState(false);
-  const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    sendMsg();
-  };
-
-  const sendMsg = () => {
-    if (emailRegex.test(values.email)) {
-      if (values.validate_num === total) {
-        sendContactMessage({ ...values });
-        setEmailInvalid(false);
-        setValues({ ...initStateValue });
-      } else {
-        setCalcInvalid(true);
-      }
-    } else {
-      setEmailInvalid(true);
-    }
-  };
 
   const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -55,59 +22,75 @@ const ContactForm = ({ sendContactMessage }) => {
     setTotal(change);
   };
 
+  const sendEmail = (event) => {
+    event.preventDefault();
+    if (event.target[3].value === total) {
+      emailjs
+        .sendForm(
+          "service_jfk81b4",
+          "template_rp9dfoo",
+          event.target,
+          "zXptHa58HK455wkBi"
+        )
+        .then(
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "El Mensaje se envio con exito!",
+            showConfirmButton: false,
+            timer: 1500,
+          }),
+          event.target.reset(),
+          validate(),
+          setCalcInvalid(false)
+        )
+        .catch(() =>
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Error al enviar el mensaje",
+            showConfirmButton: false,
+            timer: 1500,
+          })
+        );
+    } else {
+      setCalcInvalid(true);
+    }
+  };
+
   useEffect(() => {
     validate();
-    setValues({ ...initStateValue });
   }, []);
 
   return (
     <div>
-      {emailInvalid ? (
-        <p>Por favor digita una dirección de correo valida</p>
+      {calcInvalid ? (
+        <p className="input-operator">Operación incorrecta!</p>
       ) : (
         ""
       )}
-      {calcInvalid ? <p>Operación incorrecta</p> : ""}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={sendEmail}>
         <div className="flex-box">
           <input
             type="text"
             placeholder="Nombre"
             className="input-name"
-            name="nombre"
-            onChange={handleInputChange}
-            value={values.nombre}
+            name="user_name"
             required
           />
           <input
             type="email"
             placeholder="Email"
             className="input-email"
-            name="email"
-            onChange={handleInputChange}
-            value={values.email}
-            type="text"
+            name="user_email"
             required
           />
         </div>
-        <input
-          type="text"
-          placeholder="Asunto"
-          className="input-subject"
-          name="asunto"
-          onChange={handleInputChange}
-          value={values.asunto}
-          type="text"
-          required
-        />
         <textarea
           type="text"
           placeholder="Mensaje"
           className="input-message"
-          name="mensaje"
-          onChange={handleInputChange}
-          value={values.mensaje}
-          type="text"
+          name="user_message"
           required
         />
         <div className="valid-send">
@@ -115,8 +98,6 @@ const ContactForm = ({ sendContactMessage }) => {
             type="text"
             placeholder={num1 + "+" + num2}
             name="validate_num"
-            onChange={handleInputChange}
-            value={values.validate_num}
             className="input-validate"
             required
           />

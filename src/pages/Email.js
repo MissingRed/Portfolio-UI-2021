@@ -1,13 +1,9 @@
 import React from "react";
-import background from "../pages/background.jpg";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import "../styles/About.css";
 
 const Email = () => {
-  // const style = {
-  //   backgroundImage: `url(${background})`,
-  // };
   return (
     <>
       <div className="main-home__grid">
@@ -21,7 +17,7 @@ const Email = () => {
               className="email-danielrf"
               href="mailto: rodriguezdaniel048@gmail.com"
             >
-              RODRIGUEZDANIEL048@GMAIL.COM
+              rodriguezdaniel048@gmail.com
             </a>
           </div>
         </div>
